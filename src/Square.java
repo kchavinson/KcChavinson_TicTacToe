@@ -29,6 +29,7 @@ public class Square {
 
         this.marker = TicTacToe.BLANK;
         this.isWinningSquare = false;
+
     }
 
     /******************** Getters and Setters ********************/
@@ -50,6 +51,10 @@ public class Square {
      */
     public boolean isEmpty() {
         return this.marker.equals(TicTacToe.BLANK);
+    }
+
+    public boolean isWinningSquare() {
+        return isWinningSquare;
     }
 
     /**
