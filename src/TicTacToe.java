@@ -44,14 +44,6 @@ public class TicTacToe
      * The view is initialized with this TicTacToe object
      */
     public TicTacToe() {
-        // Initialize Squares in the board
-        this.board = new Square[3][3];
-        for(int row = 0; row < this.board.length; row++) {
-            for(int col = 0; col< this.board[row].length; col++) {
-                this.board[row][col] = new Square(row, col);
-            }
-        }
-
         // Initialize winning stats variables
         this.isGameOver = false;
         this.turn = 0;
@@ -59,6 +51,16 @@ public class TicTacToe
         this.winIndex = -1;
         this.winDirection = -1;
         this.window = new TicTacToeViewer(this);
+
+        // Initialize Squares in the board
+        this.board = new Square[3][3];
+        for(int row = 0; row < this.board.length; row++) {
+            for(int col = 0; col< this.board[row].length; col++) {
+                this.board[row][col] = new Square(row, col, window);
+            }
+        }
+
+
     }
 
 
@@ -153,10 +155,10 @@ public class TicTacToe
      */
     private void takeTurn(int row, int col) {
         if(this.turn % 2 == 0) {
-            this.board[col][row].setMarker(X_MARKER);
+            this.board[row][col].setMarker(X_MARKER);
         }
         else {
-            this.board[col][row].setMarker(O_MARKER);
+            this.board[row][col].setMarker(O_MARKER);
         }
         this.turn++;
     }
